@@ -19,7 +19,7 @@ router.post('/:orderId', async (req, res) => {
             loc.address.toLowerCase() === address.toLowerCase()
         );
         if (existingLocation) {
-            return res.status(400).json({ message: 'This address has already been added to the order' });
+            return res.status(400).json({ message: 'This address has already been added to the project' });
         }
 
         const newLocation = new Location({

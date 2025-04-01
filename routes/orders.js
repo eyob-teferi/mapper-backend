@@ -10,6 +10,7 @@ const DEMO_USER_ID = '67e7f928c0f3fc3652acb936'; // Replace with your demo user'
 // Get all orders for the demo user
 router.get('/', /*auth,*/ async (req, res) => { // Remove auth middleware
     try {
+        console.log("you just hit this url, that id goodddddddddddddd")
         const orders = await Order.find({ user: DEMO_USER_ID }).populate('locations');
         res.json(orders);
     } catch (err) {
@@ -30,6 +31,32 @@ router.post('/', /*auth,*/ async (req, res) => { // Remove auth middleware
         res.json(order);
     } catch (err) {
         res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// NEW: PUT to update an order's name
+router.put('/:orderId', async (req, res) => {
+    try {
+        const { orderId } = req.params;
+        const { name } = req.body;
+
+        // Validate the request
+        if (!name) {
+            return res.status(400).json({ message: 'Project name is required' });
+        }
+
+        // Find and update the order
+        const order = await Order.findById(orderId);
+        if (!order) {
+            return res.status(404).json({ message: 'Order not found' });
+        }
+
+        order.name = name;
+        await order.save();
+
+        res.status(200).json(order);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
     }
 });
 
