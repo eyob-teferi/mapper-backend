@@ -17,7 +17,7 @@ router.get('/', /*auth,*/ async (req, res) => { // Remove auth middleware
         res.status(500).json({ message: 'Server error' });
     }
 });
-
+//webhooks
 // Create a new order
 router.post('/', /*auth,*/ async (req, res) => { // Remove auth middleware
     const { name } = req.body;
