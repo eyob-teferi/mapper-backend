@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Routes dsfsdfsd
+// Routes dsfsdfsd dsfgsdgsdfg
 // app.use('/api/auth', require('./routes/auth')); // Comment out auth route
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/locations', require('./routes/locations'));
