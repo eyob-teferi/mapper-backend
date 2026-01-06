@@ -13,7 +13,7 @@ app.use(express.json());
 // app.use('/api/auth', require('./routes/auth')); // Comment out auth route
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/locations', require('./routes/locations'));
-
+//this is where the majic happens
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
     
