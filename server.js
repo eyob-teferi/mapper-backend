@@ -8,7 +8,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-
+//what is going on?
 // Routes dsfsdfsd
 // app.use('/api/auth', require('./routes/auth')); // Comment out auth route
 app.use('/api/orders', require('./routes/orders'));
